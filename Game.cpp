@@ -135,8 +135,7 @@ GameStatus Game::fight(const char* playerName1, const char* playerName2) {
 std::ostream& operator<<(std::ostream& os, const Game& game) {
     game.sortPlayers();
     for (int i = 0; i < game.currentPlayers; i++) {
-        std::cout << "player " << i << ": " << *(game.players[i]) << ","
-                  << std::endl;
+        os << "player " << i << ": " << *(game.players[i]) << "," << std::endl;
     }
     return os;
 }

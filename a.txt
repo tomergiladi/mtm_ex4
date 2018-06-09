@@ -1,0 +1,73 @@
+cheak input Test
+pass test 1
+pass test 2
+pass test 3
+pass test 4
+pass test 5
+pass test 6
+pass test 7
+pass test 8
+pass test 9
+pass test 10
+failed test 11
+cheak nextLevelTest
+pass test 1
+pass test 2
+pass test 3
+pass test 4
+pass test 5
+pass test 6
+pass test 7
+pass test 8
+pass test 9
+pass test 10
+cheak makeStep
+pass test 1
+pass test 2
+pass test 3
+pass test 4
+pass test 5
+pass test 6
+pass test 7
+pass test 8
+pass test 9
+pass test 10
+cheak addLife
+pass test 1
+pass test 2
+pass test 3
+pass test 4
+pass test 5
+pass test 6
+pass test 7
+pass test 8
+pass test 9
+pass test 10
+cheak addStrength 
+pass test 1
+pass test 2
+pass test 3
+pass test 4
+pass test 5
+pass test 6
+pass test 7
+pass test 8
+pass test 9
+pass test 10
+cheak remove 
+pass test 1
+pass test 2
+pass test 3
+cheak input after remove 
+pass test 1
+pass test 2
+pass test 3
+cheak fight 
+pass test 1
+pass test 2
+pass test 3
+pass test 4
+pass test 5
+pass test 6
+pass test 7
+GOOD LUCK ON INFI 2.0
