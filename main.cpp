@@ -29,4 +29,5 @@ int main() {
     std::vector<B> v;
     v.push_back(B());
     std::vector<A> v11dsfsdfdsfsafd111;
+    std::vector<A> v132;
 }
