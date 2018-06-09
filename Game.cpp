@@ -125,10 +125,6 @@ GameStatus Game::fight(const char* playerName1, const char* playerName2) {
     return fightSuccess ? SUCCESS : FIGHT_FAILED;
 }
 std::ostream& operator<<(std::ostream& os, const Game& game) {
-    std::sort(game.players, game.players + game.currentPlayers,
-              [](Player* playerPtr1, Player* playerPtr2) -> bool {
-                  return *playerPtr1 < *playerPtr2;
-              });
     for (int i = 0; i < game.currentPlayers; i++) {
         std::cout << "player " << i << ": " << *(game.players[i]) << ","
                   << std::endl;
