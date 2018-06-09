@@ -14,6 +14,14 @@ int Game::getPlayerIndex(const char* playerName) {
     }
     return -1;
 }
+void Game::sortPlayers() const {
+    for (int i = 1; i < this->currentPlayers; i++) {
+        for (int j = i; j > 0 && *(this->players[j]) < *(this->players[j - 1]);
+             j--) {
+            std::swap(this->players[j], this->players[j - 1]);
+        }
+    }
+}
 Game::Game(int maxPlayers)
     : maxPlayers(maxPlayers),
       currentPlayers(0),
@@ -125,6 +133,7 @@ GameStatus Game::fight(const char* playerName1, const char* playerName2) {
     return fightSuccess ? SUCCESS : FIGHT_FAILED;
 }
 std::ostream& operator<<(std::ostream& os, const Game& game) {
+    game.sortPlayers();
     for (int i = 0; i < game.currentPlayers; i++) {
         std::cout << "player " << i << ": " << *(game.players[i]) << ","
                   << std::endl;

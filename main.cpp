@@ -19,15 +19,11 @@ void simpleTest() {
     assert(game.removeAllPlayersWIthWeakWeapon(13) == true);
     cout << game << endl;
 }
-class A {};
-class B : A {};
-template <class T, class S extends T>
-void f(std::vector<S> v1, std::vector<T> v2) {
-}
 int main() {
-    // simpleTest();
-    std::vector<B> v;
-    v.push_back(B());
-    std::vector<A> v11dsfsdfdsfsafd111;
-    std::vector<A> v132;
+    cout << "Sfasd";
+    simpleTest();
+    // std::vector<B> v;
+    // v.push_back(B());
+    // std::vector<A> v11dsfsdfdsfsafd111;
+    // std::vector<A> v132;
 }

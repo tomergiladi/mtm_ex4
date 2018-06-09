@@ -16,6 +16,7 @@ class Game {
     Player** players;
     void deletePlayers();
     int getPlayerIndex(const char* playerName);
+    void sortPlayers() const;
 
    public:
     explicit Game(int maxPlayers);
