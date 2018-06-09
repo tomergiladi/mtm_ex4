@@ -21,12 +21,12 @@ void simpleTest() {
 }
 class A {};
 class B : A {};
-template <class T,class S extends T>
+template <class T, class S extends T>
 void f(std::vector<S> v1, std::vector<T> v2) {
 }
 int main() {
     // simpleTest();
     std::vector<B> v;
     v.push_back(B());
-    std::vector<A> v1;
+    std::vector<A> v11111;
 }
