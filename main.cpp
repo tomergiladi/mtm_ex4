@@ -28,5 +28,5 @@ int main() {
     // simpleTest();
     std::vector<B> v;
     v.push_back(B());
-    std::vector<A> v11111;
+    std::vector<A> v11dsfsdfdsfsafd111;
 }
