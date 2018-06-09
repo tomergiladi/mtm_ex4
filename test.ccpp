@@ -1,0 +1,72 @@
+#include <iostream>
+#include "assert.h"
+#include "player.h"
+void testPlayer() {
+    Player player("tomer", Weapon("tomwep", LIFE, 30));
+    player.addLife();
+    player.addStrength(5);
+    assert(player.isAlive() == true);
+    assert(!player.isPlayer("afd"));
+    assert(player.isPlayer("tomer"));
+    player.makeStep();
+    player.nextLevel();
+    Player p2("abc", Weapon("fsdf", LEVEL, 1));
+    assert(player > p2);
+    assert(!(p2 > player));
+    assert(!(player < p2));
+    assert(p2 < player);
+    Player p3 = p2;
+    player.fight(p2);
+    assert(player.isAlive());
+    assert(p2.isAlive());
+    p2.makeStep();
+    p3.makeStep();
+    player.fight(p2);
+    assert(player.isAlive());
+    assert(!p2.isAlive());
+    p3.fight(player);
+    assert(player.isAlive());
+    assert(!p3.isAlive());
+    for (int i = 0; i < 100; i++) {
+        p3.addLife();
+    }
+    p3.fight(player);
+    assert(player.isAlive());
+    assert(p3.isAlive());
+    std::cout << player << std::endl;
+    std::cout << p2 << std::endl;
+    std::cout << p3 << std::endl;
+}
+void weaponTest() {
+    Weapon w = Weapon("strong", LEVEL, 9000 + 1);
+    assert(w.getHitStrength() == 9001);
+    assert(w.getTarget() == LEVEL);
+    assert(w.getValue() == 9001 * 1);
+    Weapon w2 = Weapon("bla", LIFE, 3000);
+    assert(w2.getHitStrength() == 3000);
+    assert(w2.getTarget() == LIFE);
+    assert(w2.getValue() == 9000);
+    assert(w > w2);
+    assert(!(w < w2));
+    assert(w != w2);
+    assert(!(w == w2));
+    assert(w2 < w);
+    assert(!(w2 > w));
+    assert(w2 != w);
+    assert(!(w2 == w));
+    Weapon w3("fd", STRENGTH, 4500);
+    assert(w2 == w3);
+    Weapon w4 = w;
+    assert(w4 == w);
+    w2 = w;
+    assert(w == w2);
+    std::cout << w << std::endl
+              << w2 << std::endl
+              << w3 << std::endl
+              << w4 << std::endl;
+}
+int main() {
+    weaponTest();
+    testPlayer();
+    return 0;
+}
