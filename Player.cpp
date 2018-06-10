@@ -54,17 +54,11 @@ void Player::addStrength(int strengthToAdd) {
 bool Player::isAlive() const {
     return this->level > 0 && this->life > 0 && this->strength > 0;
 }
-bool Player::operator>(const Player& other) const {
-    // std::cout << this->name << other.name << (strcmp(this->name,
-    // other.name));
-    return strcmp(this->name, other.name) > 0;
-}
+
 bool Player::weaponIsWeak(int weaponMinStrength) const {
     return this->weapon.getValue() < weaponMinStrength;
 }
-bool Player::operator<(const Player& other) const {
-    return other > *this;
-}
+
 std::ostream& operator<<(std::ostream& os, const Player& player) {
     return os << "{player name: " << player.name
               << ", weapon: " << player.weapon << "}";
@@ -98,4 +92,10 @@ bool Player::fight(Player& player) {
         }
     }
     return true;
+}
+bool operator>(const Player& player1, const Player& player2) {
+    return strcmp(player1.name, player2.name) > 0;
+}
+bool operator<(const Player& player1, const Player& player2) {
+    return player2 > player1;
 }

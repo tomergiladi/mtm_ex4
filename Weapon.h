@@ -46,17 +46,22 @@ class Weapon {
     // return the value of the current weapon based on it's strength and target
     int getValue() const;
 
-    /*
-    bool operator>(const Weapon& other) const;
-    bool operator<(const Weapon& other) const;
-    bool operator==(const Weapon& other) const;
-    bool operator!=(const Weapon& other) const;
-    */
+    // prints the weapon to the ostream given,
+    // format: {weapon name: name, weapon value:value}
     friend std::ostream& operator<<(std::ostream& os, const Weapon& weapon);
 };
 
+// comapares two weapons and return if the first is greater than the second
+// based on their value
 bool operator>(const Weapon& weapon1, const Weapon& weapon2);
+
+// comapares two weapons and return if the first is less than the second
+// based on their value
 bool operator<(const Weapon& weapon1, const Weapon& weapon2);
+
+// comapares two weapons and return if they are equals, based on their value
 bool operator==(const Weapon& weapon1, const Weapon& weapon2);
+
+// comapares two weapons and return if they are not equals, based on their value
 bool operator!=(const Weapon& weapon1, const Weapon& weapon2);
 #endif

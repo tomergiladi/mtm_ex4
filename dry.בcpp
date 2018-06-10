@@ -1,0 +1,84 @@
+#include <cstdlib>
+#include <cstring>
+
+class Stack {
+    int size;     //-const : we need to change value of size in ChangeStackSize
+    char** data;  //-const : we need to change value of data in ChangeStackSize
+    int currSize;
+
+   public:
+    // needs to be explicit
+    explicit Stack(int size) : size(size), data(new char*[size]), currSize(0) {
+    }
+    ~Stack() {
+        while (this->currSize) {
+            this->pop();
+        }
+        delete[] data;  //-(data)
+    }
+    void push(char* stringToAdd) {
+        data[currSize++] =
+            stringToAdd;  // maybe we need to copy everything with strcopy
+                          // otherwise the user need to use the strings it
+                          // passes to the stack
+    }
+    char* get() {
+        return data[currSize - 1];
+        // we need to return last string in the stack, so this
+        // element is on currSize-1 place
+    }
+    void pop() {
+        delete data[--currSize];  // we have to use delete instead free
+    }
+    void pop(int numOfElemToPop) {
+        for (int i = 0; i < numOfElemToPop; ++i) {
+            pop();
+        }
+    }
+    void pop(
+        double numOfElemToPop) {  // we don't need 2 same functions for int
+                                  // and double - compiler can change int
+                                  // to double automatic
+                                  // probably need to delete this function since
+                                  // deleting 4.5 elements is meaningless
+        for (int i = 0; i < numOfElemToPop; ++i) {
+            pop();
+        }
+    }
+    friend void ChangeStackSize(int newSize, Stack stack) {
+        stack.size = newSize;
+        char** data_temp = new char*[newSize];  // +char**: we need to declare
+                                                // variable before it's using
+
+        // delete members that are over the new size of the stack
+        for (int i = stack.currSize; i > newSize; i--) {
+            stack.pop();
+        }
+        for (int i = 0; i < stack.currSize i++) {
+            data_temp[i] = stack.data[i];
+        }
+        delete[] stack.data;     // stack.data
+        stack.data = data_temp;  // we change data so, it hasn't be constant
+    }
+    friend bool operator==(
+        const Stack& stack,
+        const Stack& stack1) {  //+friend //const //because we added friend, we
+                                // need to add stack to compare with.
+        if (stack1.currSize != stack.currSize) {  // stack.currSize
+            return false;
+        }
+        for (int i = 0; i < stack.currSize; i++) {
+            if (stack1.data[i] != stack.data[i]) {
+                return false;
+            }
+        }
+        return true;
+    }
+    Stack(const Stack& stack)
+        : size(size), data(new char*[stack.size]), currSize(0) {
+        for (int i = 0; i < stack.currSize; i++) {
+            this->push(stack.data[i]);
+        }
+    }
+    Stack& operator=(Stack& s) = delete;
+};
