@@ -32,11 +32,11 @@ class Player {
 
     // creates a copy of a given player, copies the name and the weapon memory
     // errors
-    Player(const Player& other);
+    Player(const Player& player);
 
     // assignment operator, deletes the player's resources and reassign them to
     // copies of the given player
-    Player& operator=(const Player& other);
+    Player& operator=(const Player& player);
 
     // prints the player to the ostream given,
     // format: {player name: name, weapon: weapon}

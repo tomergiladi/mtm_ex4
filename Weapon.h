@@ -28,11 +28,11 @@ class Weapon {
 
     // creates a copy of a given weapon, reallocates memory for the name to
     // avoid memory error
-    Weapon(const Weapon& other);
+    Weapon(const Weapon& weapon);
 
     // assignment operator, deletes the weapon's resources and reassign them to
     // copies of the given weapon
-    Weapon& operator=(const Weapon& other);
+    Weapon& operator=(const Weapon& weapon);
 
     // destroys all weapon's resources
     ~Weapon();

@@ -10,27 +10,28 @@ Player::Player(const char* name, const Weapon& weapon)
       position(0) {
     strcpy(this->name, name);
 }
-Player::Player(const Player& other)
-    : name(new char[strlen(other.name) + 1]),
-      level(other.level),
-      life(other.life),
-      strength(other.strength),
-      weapon(other.weapon),
-      position(other.position) {
-    strcpy(this->name, other.name);
+Player::Player(const Player& player)
+    : name(new char[strlen(player.name) + 1]),
+      level(player.level),
+      life(player.life),
+      strength(player.strength),
+      weapon(player.weapon),
+      position(player.position) {
+    strcpy(this->name, player.name);
 }
-Player& Player::operator=(const Player& other) {
-    if (this == &other) {
+Player& Player::operator=(const Player& player) {
+    // we dont want to change anything if we are assigning to the same player
+    if (this == &player) {
         return *this;
     }
-    this->level = other.level;
-    this->life = other.life;
-    this->strength = other.strength;
-    this->weapon = other.weapon;
-    this->position = other.position;
+    this->level = player.level;
+    this->life = player.life;
+    this->strength = player.strength;
+    this->weapon = player.weapon;
+    this->position = player.position;
     delete[] this->name;
-    this->name = new char[strlen(other.name) + 1];
-    strcpy(this->name, other.name);
+    this->name = new char[strlen(player.name) + 1];
+    strcpy(this->name, player.name);
     return *this;
 }
 Player::~Player() {

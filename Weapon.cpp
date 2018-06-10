@@ -20,21 +20,22 @@ Weapon::Weapon(const char* name, Target target, int hit_strength)
       hitStrength(hit_strength) {
     strcpy(this->name, name);
 }
-Weapon::Weapon(const Weapon& other)
-    : name(new char[strlen(other.name) + 1]),
-      target(other.target),
-      hitStrength(other.hitStrength) {
-    strcpy(this->name, other.name);
+Weapon::Weapon(const Weapon& weapon)
+    : name(new char[strlen(weapon.name) + 1]),
+      target(weapon.target),
+      hitStrength(weapon.hitStrength) {
+    strcpy(this->name, weapon.name);
 }
-Weapon& Weapon::operator=(const Weapon& other) {
-    if (this == &other) {
+Weapon& Weapon::operator=(const Weapon& weapon) {
+    // we dont want to change anything if we are assigning to the same weapon
+    if (this == &weapon) {
         return *this;
     }
-    this->target = other.target;
-    this->hitStrength = other.hitStrength;
+    this->target = weapon.target;
+    this->hitStrength = weapon.hitStrength;
     delete[] this->name;
-    this->name = new char[strlen(other.name) + 1];
-    strcpy(this->name, other.name);
+    this->name = new char[strlen(weapon.name) + 1];
+    strcpy(this->name, weapon.name);
     return *this;
 }
 Weapon::~Weapon() {
