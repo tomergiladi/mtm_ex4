@@ -20,7 +20,7 @@ Player::Player(const Player& player)
     strcpy(this->name, player.name);
 }
 Player& Player::operator=(const Player& player) {
-    // we dont want to change anything if we are assigning to the same playeraaa
+    // we dont want to change anything if we are assigning to the same player
     if (this == &player) {
         return *this;
     }
