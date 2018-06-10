@@ -31,7 +31,7 @@ class Game {
     GameStatus makeStep(const char* playerName);
     GameStatus addLife(const char* playerName);
     GameStatus addStrength(const char* playerName, int strengthToAdd);
-    bool removeAllPlayersWIthWeakWeapon(int weaponStrength);
+    bool removeAllPlayersWithWeakWeapon(int weaponStrength);
     GameStatus fight(const char* playerName1, const char* playerName2);
     friend std::ostream& operator<<(std::ostream& os, const Game& game);
 };

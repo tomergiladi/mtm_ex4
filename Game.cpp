@@ -101,7 +101,7 @@ GameStatus Game::addStrength(const char* playerName, int strengthToAdd) {
     this->players[index]->addStrength(strengthToAdd);
     return SUCCESS;
 }
-bool Game::removeAllPlayersWIthWeakWeapon(int weaponStrength) {
+bool Game::removeAllPlayersWithWeakWeapon(int weaponStrength) {
     int current = 0;
     int didRemove = false;
     while (current != this->currentPlayers) {
