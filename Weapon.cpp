@@ -49,17 +49,18 @@ int Weapon::getHitStrength() const {
 int Weapon::getValue() const {
     return this->getHitStrength() * this->getTargetValue();
 }
-bool Weapon::operator>(const Weapon& other) const {
-    return this->getValue() > other.getValue();
+
+bool operator>(const Weapon& weapon1, const Weapon& weapon2) {
+    return weapon1.getValue() > weapon2.getValue();
 }
-bool Weapon::operator<(const Weapon& other) const {
-    return other > *this;
+bool operator<(const Weapon& weapon1, const Weapon& weapon2) {
+    return weapon2 > weapon1;
 }
-bool Weapon::operator==(const Weapon& other) const {
-    return !(*this > other || *this < other);
+bool operator==(const Weapon& weapon1, const Weapon& weapon2) {
+    return !(weapon1 > weapon2 || weapon1 < weapon2);
 }
-bool Weapon::operator!=(const Weapon& other) const {
-    return !(*this == other);
+bool operator!=(const Weapon& weapon1, const Weapon& weapon2) {
+    return !(weapon1 == weapon2);
 }
 
 std::ostream& operator<<(std::ostream& os, const Weapon& weapon) {
