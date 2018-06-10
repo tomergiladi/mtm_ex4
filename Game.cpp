@@ -139,7 +139,7 @@ GameStatus Game::fight(const char* playerName1, const char* playerName2) {
     int index1 = getPlayerIndex(playerName1);
     int index2 = getPlayerIndex(playerName2);
 
-    // if either players does not exist return an erroe
+    // if either players does not exist return an error
     if (index1 == -1 || index2 == -1) {
         return NAME_DOES_NOT_EXIST;
     }
