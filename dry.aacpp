@@ -45,7 +45,7 @@ class Stack {
             pop();
         }
     }
-    friend void ChangeStackSize(int newSize, Stack stack) {
+    friend void ChangeStackSize(int newSize, Stack& stack) {
         stack.size = newSize;
         char** data_temp = new char*[newSize];  // +char**: we need to declare
                                                 // variable before it's using

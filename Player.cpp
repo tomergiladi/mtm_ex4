@@ -1,6 +1,15 @@
 #include "Player.h"
 #include "math.h"
 #include "string.h"
+
+void Player::subtructWithMin(int& number, int subructBy, int minimum) {
+    number -= subructBy;
+    // make sure that after the substruction, the number is at least minimum
+    if (number < minimum) {
+        number = minimum;
+    }
+}
+
 Player::Player(const char* name, const Weapon& weapon)
     : name(new char[strlen(name) + 1]),
       level(1),
@@ -63,12 +72,6 @@ bool Player::weaponIsWeak(int weaponMinStrength) const {
 std::ostream& operator<<(std::ostream& os, const Player& player) {
     return os << "{player name: " << player.name
               << ", weapon: " << player.weapon << "}";
-}
-void Player::subtructWithMin(int& number, int subructBy, int minimum) {
-    number -= subructBy;
-    if (number < minimum) {
-        number = minimum;
-    }
 }
 bool Player::fight(Player& player) {
     if (this->position != player.position || this->weapon == player.weapon) {

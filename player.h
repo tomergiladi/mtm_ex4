@@ -34,6 +34,13 @@ class Player {
     // errors
     Player(const Player& player);
 
+    /**
+     * @param
+     *
+     *
+     *
+     *
+     */
     // assignment operator, deletes the player's resources and reassign them to
     // copies of the given player
     Player& operator=(const Player& player);

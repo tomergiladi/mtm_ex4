@@ -150,13 +150,13 @@ void addStrength(Game& game) {
 
 void remove(Game& game, int num) {
     cout << "cheak remove " << endl;
-    (!game.removeAllPlayersWIthWeakWeapon(0)) ? cout << "pass test 1" << endl
+    (!game.removeAllPlayersWithWeakWeapon(0)) ? cout << "pass test 1" << endl
                                               : cout << "failed test 1" << endl;
 
-    (!game.removeAllPlayersWIthWeakWeapon(5)) ? cout << "pass test 2" << endl
+    (!game.removeAllPlayersWithWeakWeapon(5)) ? cout << "pass test 2" << endl
                                               : cout << "failed test 2" << endl;
 
-    (game.removeAllPlayersWIthWeakWeapon(15)) ? cout << "pass test 3" << endl
+    (game.removeAllPlayersWithWeakWeapon(15)) ? cout << "pass test 3" << endl
                                               : cout << "failed test 3" << endl;
 }
 void inputTest2(Game& game) {

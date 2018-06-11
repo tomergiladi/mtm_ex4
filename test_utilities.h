@@ -3,6 +3,11 @@
 
 #include <cstdio>
 #include <cmath>
+#include <iostream>
+
+using std::endl;
+using std::cout;
+using std::printf;
 
 int test_number = 0;
 int tests_passed = 0;
